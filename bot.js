@@ -1,12 +1,12 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const prefix = "b!";
+const prefix = "b2!";
 client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`);
 });
 
 client.on('message', message => {
-        var prefix = "b!";
+        var prefix = "b2!";
               if(!message.channel.guild) return;
     if(message.content.startsWith(prefix + 'bc')) {
     if(!message.channel.guild) return message.channel.send('**:no_entry: , This Command Only For Servers**').then(m => m.delete(5000));
@@ -23,8 +23,8 @@ client.on('message', message => {
     let reaction1Filter = (reaction, user) => reaction.emoji.name === '✅' && user.id === message.author.id;
     let reaction2Filter = (reaction, user) => reaction.emoji.name === '❌' && user.id === message.author.id;
     
-    let reaction1 = msg.createReactionCollector(reaction1Filter, { time: 12000 });
-    let reaction2 = msg.createReactionCollector(reaction2Filter, { time: 12000 });
+    let reaction1 = msg.createReactionCollector(reaction1Filter, { time: 120000 });
+    let reaction2 = msg.createReactionCollector(reaction2Filter, { time: 120000 });
  reaction1.on("collect", r => {
     message.channel.send(`**:white_check_mark: , The Broadcast Has Been Send To __${message.guild.members.size}__ Members Successfully**`).then(m => m.delete(5000));
     message.guild.members.forEach(m => {
